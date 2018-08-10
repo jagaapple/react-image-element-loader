@@ -1,0 +1,35 @@
+{
+  "name": "react-image-element",
+  "version": "0.1.0",
+  "description": "Creates React element or extracts file path from images (PNG/JPEG/GIF/SVG).",
+  "keywords": [
+    "React",
+    "JSX",
+    "images",
+    "PNG",
+    "JPEG",
+    "GIF",
+    "SVG"
+  ],
+  "homepage": "https://github.com/jagaapple/react-image-element",
+  "bugs": "https://github.com/jagaapple/react-image-element/issues",
+  "license": "MIT",
+  "author": "Jaga Apple",
+  "contributors": [],
+  "main": "index.js",
+  "bin": "",
+  "man": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagaapple/react-image-element.git"
+  },
+  "scripts": {},
+  "config": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "engines": {},
+  "engineStrict": false,
+  "preferGlobal": false,
+  "private": false
+}
