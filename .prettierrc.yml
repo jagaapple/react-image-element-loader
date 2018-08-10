@@ -28,7 +28,7 @@ rangeEnd: "Infinity"
 # Specify which parser to use.
 # Both the babylon and flow parsers support the same set of JavaScript features (including Flow).
 # Prettier automatically infers the parser from the input file path, so you shouldn't have to change this setting.
-parser: ~
+parser: "typescript"
 # Specify the input filepath. This will be used to do parser inference.
 filepath: "none"
 # Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
