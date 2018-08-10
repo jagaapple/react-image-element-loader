@@ -26,7 +26,9 @@
   "scripts": {},
   "config": {},
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "prettier": "^1.14.2"
+  },
   "peerDependencies": {},
   "engines": {},
   "engineStrict": false,
