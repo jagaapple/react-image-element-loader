@@ -3,15 +3,16 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "jsx": "preserve",
     "lib": [
       "es2015",
+      "dom"
     ],
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./dist",
     "paths": {},
@@ -20,6 +21,6 @@
     "sourceMap": false,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "es2015"
   }
 }
