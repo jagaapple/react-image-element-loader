@@ -1,0 +1,43 @@
+{
+  "name": "react-image-element-sample",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/jagaapple/react-image-element",
+  "bugs": "https://github.com/jagaapple/react-image-element/issues",
+  "license": "MIT",
+  "author": "Jaga Apple",
+  "contributors": [],
+  "main": "index.js",
+  "bin": "",
+  "man": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jagaapple/react-image-element.git"
+  },
+  "scripts": {
+    "start": "webpack-serve",
+    "build": "webpack --config ./webpack.config.js",
+    "clean": "rm -rf ./dist"
+  },
+  "config": {},
+  "dependencies": {
+    "copy-webpack-plugin": "^4.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/preset-react": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.4",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
+  },
+  "peerDependencies": {},
+  "engines": {},
+  "engineStrict": false,
+  "preferGlobal": false,
+  "private": true
+}
