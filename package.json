@@ -27,7 +27,7 @@
     "build": "tsc --project ./",
     "lint": "tslint --project ./tsconfig.json --format verbose",
     "fix": "tslint --project ./tsconfig.json --format verbose --fix",
-    "clean": "rm -rf ./dist && mkdir ./dist && touch ./dist/.gitkeep"
+    "clean": "rm -rf ./dist"
   },
   "config": {},
   "dependencies": {

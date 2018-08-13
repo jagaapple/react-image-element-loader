@@ -36,3 +36,6 @@ desktop.ini
 node_modules
 npm-debug.log
 yarn-error.log
+
+# Generated files created by bundler.
+dist
