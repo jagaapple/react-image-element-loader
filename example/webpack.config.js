@@ -15,6 +15,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpe?g|gif)$/,
+        loader: reactImageElementLoader,
+        exclude: /node_modules/,
+      },
+      {
         test: /\.jsx?$/,
         use: [
           {
