@@ -16,7 +16,7 @@
   // ---------------------------------------------------------------------------------------------------------------------------
   // Configure glob patterns for excluding files and folders.
   "files.exclude": {
-    "node_modules": true
+    "**/node_modules": true
   },
 
   // Configure glob patterns of file paths to exclude from file watching.
