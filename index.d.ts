@@ -1,15 +1,15 @@
 // =============================================================================================================================
 // SRC - TYPES DEFINITION
 // =============================================================================================================================
-import { ImgHTMLAttributes } from "react";
+/// <reference types="react" />
 
 // For raster images.
 interface ImgHTMLAttributesSrc {
   src?: string;
 }
 type ImgHTMLAttributesWithoutSrc<T> = Pick<
-  ImgHTMLAttributes<T>,
-  Exclude<keyof ImgHTMLAttributes<T>, keyof ImgHTMLAttributesSrc>
+  React.ImgHTMLAttributes<T>,
+  Exclude<keyof React.ImgHTMLAttributes<T>, keyof ImgHTMLAttributesSrc>
 >;
 
 declare module "*.png" {
