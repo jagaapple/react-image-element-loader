@@ -3,6 +3,15 @@
 // =============================================================================================================================
 /// <reference types="react" />
 
+// For vector images.
+declare module "*.svg" {
+  const path: string;
+  const element: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
+
+  export { path };
+  export default element;
+}
+
 // For raster images.
 interface ImgHTMLAttributesSrc {
   src?: string;
