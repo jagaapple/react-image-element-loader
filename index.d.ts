@@ -3,6 +3,15 @@
 // =============================================================================================================================
 /// <reference types="react" />
 
+// For vector images.
+declare module "*.svg" {
+  const path: string;
+  const element: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
+
+  export { path };
+  export default element;
+}
+
 // For raster images.
 interface ImgHTMLAttributesSrc {
   src?: string;
@@ -14,32 +23,32 @@ type ImgHTMLAttributesWithoutSrc<T> = Pick<
 
 declare module "*.png" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.jpg" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.jpeg" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.gif" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
