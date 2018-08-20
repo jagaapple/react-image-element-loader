@@ -14,32 +14,32 @@ type ImgHTMLAttributesWithoutSrc<T> = Pick<
 
 declare module "*.png" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.jpg" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.jpeg" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
 
 declare module "*.gif" {
   const path: string;
-  const component: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
+  const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
   export { path };
-  export default component;
+  export default element;
 }
