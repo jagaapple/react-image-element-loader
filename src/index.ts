@@ -9,18 +9,15 @@ import { generateURI } from "./file-utilities";
 // Prevents to get a file as string.
 export const raw = true;
 
-export default function(this: loader.LoaderContext, buffer: Buffer) {
+export default async function(this: loader.LoaderContext, buffer: Buffer) {
   const callback = this.async();
   if (callback == undefined) {
     return;
   }
 
-  Promise.resolve(buffer)
-    .then((source: Buffer) => generateElementFunctionCode(this.resourcePath, source))
-    .then((jsxCode: string) => {
-      const path = generateURI(buffer, this.resourcePath);
-
-      return generateModuleCode(path, jsxCode);
-    })
-    .then((code: string) => callback(undefined, transformJSX(code, false).code));
+  const jsxCode = await generateElementFunctionCode(this.resourcePath, buffer);
+  const path = generateURI(buffer, this.resourcePath);
+  const code = generateModuleCode(path, jsxCode);
+  const transformedCode = await transformJSX(code, false);
+  callback(undefined, transformedCode.code);
 }

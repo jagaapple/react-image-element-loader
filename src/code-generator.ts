@@ -4,39 +4,32 @@
 import * as svgToJSX from "svg-to-jsx";
 import { getExtension } from "./file-utilities";
 
-type JSXCodeResolver = (value?: string | PromiseLike<string>) => void;
+const generateJSXFromSVG = (svg: string) => {
+  const promise = svgToJSX(svg) as Promise<string>;
+  const onFulfilled = (jsx: string) => {
+    const code = jsx.replace(/<svg(.*?)>/, "<svg$1 {...props}>");
 
-const generateJSXFromSVG = (svg: string, resolve: JSXCodeResolver) => {
-  try {
-    svgToJSX(svg, (error: Error | undefined, jsx: string) => {
-      if (error != undefined) {
-        throw error;
-      }
+    return `(function(props) { return ${code} });`;
+  };
+  const onRejected = () => "{}";
 
-      const code = jsx.replace(/<svg(.*?)>/, "<svg$1 {...props}>");
-      resolve(`(function(props) { return ${code} });`);
-    });
-  } catch {
-    resolve("{}");
-  }
+  return promise.then(onFulfilled).catch(onRejected);
 };
 
-const generateJSXFromRasterImages = (resolve: JSXCodeResolver) => {
-  resolve(`
+const generateJSXFromRasterImages = async () => {
+  return `
     (function(props) {
       var newProps = Object.assign({}, props, { src: imagePath });
 
       return <img {...newProps} />
     });
-  `);
+  `;
 };
 
 export const generateElementFunctionCode = (imagePath: string, source: Buffer) => {
   const isSVG = getExtension(imagePath) === "svg";
 
-  return new Promise<string>((resolve: JSXCodeResolver) => {
-    isSVG ? generateJSXFromSVG(source.toString("utf8"), resolve) : generateJSXFromRasterImages(resolve);
-  });
+  return isSVG ? generateJSXFromSVG(source.toString("utf8")) : generateJSXFromRasterImages();
 };
 
 export const generateModuleCode = (imageURI: string, jsxCode: string) => `
