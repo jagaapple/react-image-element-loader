@@ -2,60 +2,26 @@
 // SRC - IDNEX
 // =============================================================================================================================
 import { loader } from "webpack";
-import { transform } from "babel-core";
-import * as svgToJSX from "svg-to-jsx";
-import { generateURI, getExtension } from "./uri-generator";
+import { generateJSXFromRasterImages, generateJSXFromSVG, JSXCodeResolver } from "./jsx-generator";
+import { transformJSX } from "./transformer";
+import { generateURI, getExtension } from "./file-utilities";
 
 // Prevents to get a file as string.
 export const raw = true;
 
-const transformJSX = (code: string, jsx: boolean) => {
-  const options = {
-    babelrc: false,
-    plugins: ["syntax-jsx", "transform-object-rest-spread", "transform-object-assign"],
-    presets: jsx ? [] : ["react"],
-  };
-
-  return transform(code, options);
-};
-
 const generateElementFunctionCode = (imagePath: string, source: Buffer) => {
   const isSVG = getExtension(imagePath) === "svg";
 
-  return new Promise<string>((resolve: (value?: string | PromiseLike<string>) => void) => {
-    try {
-      if (isSVG) {
-        const svg = source.toString("utf8");
-        svgToJSX(svg, (error: Error | undefined, jsx: string) => {
-          if (error != undefined) {
-            throw error;
-          }
-
-          const code = jsx.replace(/<svg(.*?)>/, `<svg$1 {...props}>`);
-          resolve(`
-            (function(props) {
-              return ${code};
-            });
-          `);
-        });
-
-        return;
-      }
-    } catch {
-      resolve("{}");
-
-      return;
-    }
-
-    resolve(`
-      (function(props) {
-        var newProps = Object.assign({}, props, { src: imagePath });
-
-        return <img {...newProps} />
-      });
-    `);
+  return new Promise<string>((resolve: JSXCodeResolver) => {
+    isSVG ? generateJSXFromSVG(source.toString("utf8"), resolve) : generateJSXFromRasterImages(resolve);
   });
 };
+const generateModuleCode = (imageURI: string, jsxCode: string) => `
+  var React = require("react");
+  var imagePath = ${JSON.stringify(imageURI)};
+  module.exports = ${jsxCode};
+  module.exports.path = imagePath;
+`;
 
 export default function(this: loader.LoaderContext, buffer: Buffer) {
   const callback = this.async();
@@ -65,15 +31,10 @@ export default function(this: loader.LoaderContext, buffer: Buffer) {
 
   Promise.resolve(buffer)
     .then((source: Buffer) => generateElementFunctionCode(this.resourcePath, source))
-    .then((code: string) => {
+    .then((jsxCode: string) => {
       const path = generateURI(buffer, this.resourcePath);
 
-      return `
-        var React = require("react");
-        var imagePath = ${JSON.stringify(path)};
-        module.exports = ${code};
-        module.exports.path = imagePath;
-      `;
+      return generateModuleCode(path, jsxCode);
     })
     .then((code: string) => callback(undefined, transformJSX(code, false).code));
 }
