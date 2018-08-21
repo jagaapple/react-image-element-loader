@@ -2,6 +2,9 @@
 // SRC - IDNEX
 // =============================================================================================================================
 import { loader } from "webpack";
+import { getOptions } from "loader-utils";
+import * as validateOptions from "schema-utils";
+import schema from "./schema";
 import { generateElementFunctionCode, generateModuleCode } from "./code-generator";
 import { transformJSX } from "./transformer";
 import { generateURI } from "./file-utilities";
@@ -14,6 +17,10 @@ export default async function(this: loader.LoaderContext, buffer: Buffer) {
   if (callback == undefined) {
     return;
   }
+
+  // Gets loader options.
+  const options = getOptions(this as any) || {};
+  validateOptions(schema, options, "React Image Element");
 
   const jsxCode = await generateElementFunctionCode(this.resourcePath, buffer);
   const path = generateURI(buffer, this.resourcePath);
