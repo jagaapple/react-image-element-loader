@@ -1,7 +1,7 @@
 // =============================================================================================================================
 // SRC - IDNEX
 // =============================================================================================================================
-import { loader } from "webpack";
+import { loader as webpackLoader } from "webpack";
 import { getOptions } from "loader-utils";
 import * as validateOptions from "schema-utils";
 import schema from "./schema";
@@ -12,7 +12,7 @@ import { generateURI } from "./file-utilities";
 // Prevents to get a file as string.
 export const raw = true;
 
-export default async function(this: loader.LoaderContext, buffer: Buffer) {
+export default async function(this: webpackLoader.LoaderContext, buffer: Buffer) {
   const callback = this.async();
   if (callback == undefined) {
     return;
@@ -22,9 +22,9 @@ export default async function(this: loader.LoaderContext, buffer: Buffer) {
   const options = getOptions(this as any) || {};
   validateOptions(schema, options, "React Image Element");
 
-  const jsxCode = await generateElementFunctionCode(this.resourcePath, buffer);
-  const path = generateURI(buffer, this.resourcePath);
-  const code = generateModuleCode(path, jsxCode);
-  const transformedCode = await transformJSX(code, false);
-  callback(undefined, transformedCode.code);
+  const jsxCode = await generateElementFunctionCode(buffer, this.resourcePath);
+  const imageURI = await generateURI(this, buffer, this.resourcePath, options);
+  const moduleCode = generateModuleCode(imageURI, jsxCode);
+  const transformedModuleCode = await transformJSX(moduleCode, false);
+  callback(undefined, transformedModuleCode.code);
 }

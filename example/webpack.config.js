@@ -17,6 +17,9 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         loader: reactImageElementLoader,
+        options: {
+          sizeLimit: 1024,
+        },
         exclude: /node_modules/,
       },
       {

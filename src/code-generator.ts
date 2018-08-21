@@ -26,15 +26,15 @@ const generateJSXFromRasterImages = async () => {
   `;
 };
 
-export const generateElementFunctionCode = (imagePath: string, source: Buffer) => {
-  const isSVG = getExtension(imagePath) === "svg";
+export const generateElementFunctionCode = (source: Buffer, filePath: string) => {
+  const isSVG = getExtension(filePath) === "svg";
 
   return isSVG ? generateJSXFromSVG(source.toString("utf8")) : generateJSXFromRasterImages();
 };
 
 export const generateModuleCode = (imageURI: string, jsxCode: string) => `
   var React = require("react");
-  var imagePath = ${JSON.stringify(imageURI)};
+  var imagePath = ${imageURI};
   module.exports = ${jsxCode};
   module.exports.path = imagePath;
 `;
