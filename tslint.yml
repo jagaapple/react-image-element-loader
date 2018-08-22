@@ -318,7 +318,7 @@ rules:
   # Prefer a template expression over string literal concatenation.
   prefer-template: [true, "allow-single-concat"] # A single concatenation ( `x + y` ) is allowed, but not more ( `x + y + z` )
   # Require any function or method that returns a promise to be marked async.
-  promise-function-async: true
+  promise-function-async: false
   # Require single or double quotes for string literals.
   quotemark: [true, "double", "jsx-double"]
   # Require the radix parameter to be specified when calling parseInt.

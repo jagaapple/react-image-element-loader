@@ -3,7 +3,7 @@
 // =============================================================================================================================
 import { transform } from "babel-core";
 
-export const transformJSX = (code: string, jsx: boolean) => {
+export const transformJSX = async (code: string, jsx: boolean) => {
   const options = {
     babelrc: false,
     plugins: ["syntax-jsx", "transform-object-rest-spread", "transform-object-assign"],

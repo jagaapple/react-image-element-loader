@@ -1,40 +1,30 @@
 // =============================================================================================================================
 // SRC - IDNEX
 // =============================================================================================================================
-import { loader } from "webpack";
-import { generateJSXFromRasterImages, generateJSXFromSVG, JSXCodeResolver } from "./jsx-generator";
+import { loader as webpackLoader } from "webpack";
+import { getOptions } from "loader-utils";
+import * as validateOptions from "schema-utils";
+import schema from "./schema";
+import { generateElementFunctionCode, generateModuleCode } from "./code-generator";
 import { transformJSX } from "./transformer";
-import { generateURI, getExtension } from "./file-utilities";
+import { generateURI } from "./file-utilities";
 
 // Prevents to get a file as string.
 export const raw = true;
 
-const generateElementFunctionCode = (imagePath: string, source: Buffer) => {
-  const isSVG = getExtension(imagePath) === "svg";
-
-  return new Promise<string>((resolve: JSXCodeResolver) => {
-    isSVG ? generateJSXFromSVG(source.toString("utf8"), resolve) : generateJSXFromRasterImages(resolve);
-  });
-};
-const generateModuleCode = (imageURI: string, jsxCode: string) => `
-  var React = require("react");
-  var imagePath = ${JSON.stringify(imageURI)};
-  module.exports = ${jsxCode};
-  module.exports.path = imagePath;
-`;
-
-export default function(this: loader.LoaderContext, buffer: Buffer) {
+export default async function(this: webpackLoader.LoaderContext, buffer: Buffer) {
   const callback = this.async();
   if (callback == undefined) {
     return;
   }
 
-  Promise.resolve(buffer)
-    .then((source: Buffer) => generateElementFunctionCode(this.resourcePath, source))
-    .then((jsxCode: string) => {
-      const path = generateURI(buffer, this.resourcePath);
+  // Gets loader options.
+  const options = getOptions(this as any) || {};
+  validateOptions(schema, options, "React Image Element");
 
-      return generateModuleCode(path, jsxCode);
-    })
-    .then((code: string) => callback(undefined, transformJSX(code, false).code));
+  const jsxCode = await generateElementFunctionCode(buffer, this.resourcePath);
+  const imageURI = await generateURI(this, buffer, this.resourcePath, options);
+  const moduleCode = generateModuleCode(imageURI, jsxCode);
+  const transformedModuleCode = await transformJSX(moduleCode, false);
+  callback(undefined, transformedModuleCode.code);
 }
