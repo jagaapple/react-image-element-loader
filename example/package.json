@@ -1,10 +1,10 @@
 {
-  "name": "react-image-element-sample",
+  "name": "react-image-element-loader-sample",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/jagaapple/react-image-element",
-  "bugs": "https://github.com/jagaapple/react-image-element/issues",
+  "homepage": "https://github.com/jagaapple/react-image-element-loader",
+  "bugs": "https://github.com/jagaapple/react-image-element-loader/issues",
   "license": "MIT",
   "author": "Jaga Apple",
   "contributors": [],
@@ -13,7 +13,7 @@
   "man": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jagaapple/react-image-element.git"
+    "url": "https://github.com/jagaapple/react-image-element-loader.git"
   },
   "scripts": {
     "start": "webpack-serve",
