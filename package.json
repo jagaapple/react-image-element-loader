@@ -1,5 +1,5 @@
 {
-  "name": "react-image-element",
+  "name": "react-image-element-loader",
   "version": "0.1.0",
   "description": "Creates React element or extracts file path from images (PNG/JPEG/GIF/SVG).",
   "keywords": [
@@ -11,8 +11,8 @@
     "GIF",
     "SVG"
   ],
-  "homepage": "https://github.com/jagaapple/react-image-element",
-  "bugs": "https://github.com/jagaapple/react-image-element/issues",
+  "homepage": "https://github.com/jagaapple/react-image-element-loader",
+  "bugs": "https://github.com/jagaapple/react-image-element-loader/issues",
   "license": "MIT",
   "author": "Jaga Apple",
   "contributors": [],
@@ -21,7 +21,7 @@
   "man": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jagaapple/react-image-element.git"
+    "url": "https://github.com/jagaapple/react-image-element-loader.git"
   },
   "scripts": {
     "build": "tsc --project ./",
