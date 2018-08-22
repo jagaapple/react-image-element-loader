@@ -221,9 +221,11 @@ For example, to set the quality option of a responsive-loader above use:
 {
   loader: "react-image-element-loader",
   options: {
-    fallback: "responsive-loader",
-    options: {
-      quality: 85,
+    fallback: {
+      loader: "responsive-loader",
+      options: {
+        quality: 85,
+      },
     },
   },
 }
