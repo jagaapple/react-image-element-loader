@@ -29,6 +29,7 @@ This loader creates React element or extracts file path from images (PNG/JPEG/GI
 - [Recipes](#recipes)
   - [Styling SVG](#styling-svg)
   - [Specifies SVG as `background-image` in styles](#specifies-svg-as-background-image-in-styles)
+  - [Enables type definitions for `import` syntax for TypeScript](#enables-type-definitions-for-import-syntax-for-typescript)
 - [Contributing to react-image-element-loader](#contributing-to-react-image-element-loader)
 - [License](#license)
 
@@ -60,6 +61,7 @@ export default () => (
 - Import SVG images as React element `<svg>...</svg>` using JavaScript Module Syntax
   - It is possible to pass SVGAttributes props such as `fill`
 - Supports type definitions for images for TypeScript
+  - You should configure, see more detail [here](#enables-type-definitions-for-import-syntax-for-typescript)
 
 
 ## Quick Start
@@ -220,7 +222,9 @@ For example, to set the quality option of a responsive-loader above use:
   loader: "react-image-element-loader",
   options: {
     fallback: "responsive-loader",
-    quality: 85,
+    options: {
+      quality: 85,
+    },
   },
 }
 ```
@@ -266,6 +270,20 @@ export default () => (
     <SVGBackgroundElement />
   </div>
 );
+```
+
+### Enables type definitions for `import` syntax for TypeScript
+If you want to enable type definitions for TypeScript, you should add `"react-image-element-loader"` to your `tsconfig.json`
+file.
+
+```json
+{
+  "compilerOptions": {
+    "types": [
+      "react-image-element-loader"
+    ]
+  }
+}
 ```
 
 
