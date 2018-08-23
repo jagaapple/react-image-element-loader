@@ -25,6 +25,7 @@ This loader creates React element or extracts file path from images (PNG/JPEG/GI
   - [Get an image path](#get-an-image-path)
 - [Options](#options)
   - [`sizeLimit`](#sizelimit)
+  - [`jsx`](#jsx)
   - [`fallback`](#fallback)
 - [Recipes](#recipes)
   - [Styling SVG](#styling-svg)
@@ -197,6 +198,11 @@ If the image is smaller than the limit, `path` is Base64 encoded URL.
 ```
 
 The limit can be specified via loader options and defaults to no limit.
+
+### `jsx`
+Type: `Boolean` Default: `false`
+
+Specifies to enable output JSX codes instead of `React.createElement` function.
 
 ### `fallback`
 Type: `String` Default: `file-loader`
