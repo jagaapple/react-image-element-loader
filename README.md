@@ -3,6 +3,7 @@
 <!-- ======================================================================================================================= -->
 # react-image-element-loader
 
+[![npm](https://img.shields.io/npm/v/react-image-element-loader.svg)](https://www.npmjs.com/package/react-image-element-loader)
 [![license](https://img.shields.io/github/license/jagaapple/react-image-element-loader.svg)](https://opensource.org/licenses/MIT)
 [![@jagaapple_tech](https://img.shields.io/badge/contact-%40jagaapple_tech-blue.svg)](https://twitter.com/jagaapple_tech)
 
