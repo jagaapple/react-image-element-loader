@@ -1,6 +1,6 @@
 {
   "name": "react-image-element-loader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Creates React element or extracts file path from images (PNG/JPEG/GIF/SVG).",
   "keywords": [
     "React",
