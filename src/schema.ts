@@ -8,6 +8,9 @@ export default {
     sizeLimit: {
       type: "number",
     },
+    jsx: {
+      type: "boolean",
+    },
     fallback: {
       anyOf: [
         { type: "string" },

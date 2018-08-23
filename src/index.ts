@@ -25,6 +25,6 @@ export default async function(this: webpackLoader.LoaderContext, buffer: Buffer)
   const jsxCode = await generateElementFunctionCode(buffer, this.resourcePath);
   const imageURI = await generateURI(this, buffer, this.resourcePath, options);
   const moduleCode = generateModuleCode(imageURI, jsxCode);
-  const transformedModuleCode = await transformJSX(moduleCode, false);
+  const transformedModuleCode = await transformJSX(moduleCode, options.jsx || false);
   callback(undefined, transformedModuleCode.code);
 }
