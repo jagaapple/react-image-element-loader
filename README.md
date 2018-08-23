@@ -205,6 +205,16 @@ Type: `Boolean` Default: `false`
 
 Specifies to enable output JSX codes instead of `React.createElement` function.
 
+```js
+// webpack.config.js
+{
+  loader: "react-image-element-loader",
+  options: {
+    jsx: true,
+  },
+}
+```
+
 ### `fallback`
 Type: `String` Default: `file-loader`
 
