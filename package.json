@@ -26,6 +26,7 @@
     "index.d.ts",
     "LICENSE",
     "package.json",
+    "package-lock.json",
     "README.md"
   ],
   "main": "dist/index.js",
