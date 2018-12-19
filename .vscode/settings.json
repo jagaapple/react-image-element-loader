@@ -35,13 +35,13 @@
   // Language Setings
   // ---------------------------------------------------------------------------------------------------------------------------
   "[javascript]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[typescriptreact]": {
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   }
 
 }
