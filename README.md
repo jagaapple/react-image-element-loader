@@ -84,7 +84,7 @@ $ yarn add react-image-element-loader
 ```
 
 ### Setup
-At first, setup your webpack settings.
+First, setup your webpack settings.
 
 ```js
 // webpack.config.js
