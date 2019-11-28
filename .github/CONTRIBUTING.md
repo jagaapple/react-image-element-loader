@@ -1,6 +1,3 @@
-<!-- ======================================================================================================================= -->
-<!-- GITHUB - CONTRIBUTING                                                                                                   -->
-<!-- ======================================================================================================================= -->
 # Contributing Guidelines
 ## Language
 Git branch names and commit messages, and GitHub pull request should be written in English in order to be readable for
