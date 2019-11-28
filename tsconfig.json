@@ -3,19 +3,16 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "jsx": "preserve",
     "lib": [
-      "es2015",
+      "es2020",
       "dom"
     ],
     "module": "commonjs",
     "moduleResolution": "node",
     "outDir": "./lib",
-    "paths": {},
     "rootDir": "./src",
     "removeComments": true,
     "sourceMap": false,
