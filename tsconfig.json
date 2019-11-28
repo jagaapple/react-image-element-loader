@@ -14,7 +14,7 @@
     ],
     "module": "commonjs",
     "moduleResolution": "node",
-    "outDir": "./dist",
+    "outDir": "./lib",
     "paths": {},
     "rootDir": "./src",
     "removeComments": true,

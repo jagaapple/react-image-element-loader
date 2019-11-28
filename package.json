@@ -19,17 +19,15 @@
   "author": "Jaga Apple",
   "contributors": [],
   "files": [
-    "dist",
-    ".gitignore",
+    "lib",
     "CHANGELOG.md",
     "CODE_OF_CONDUCT.md",
     "index.d.ts",
     "LICENSE",
     "package.json",
-    "package-lock.json",
     "README.md"
   ],
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "bin": "",
   "man": "",
   "repository": {
@@ -40,7 +38,7 @@
     "build": "tsc --project ./",
     "lint": "tslint --project ./tsconfig.json --format verbose",
     "fix": "tslint --project ./tsconfig.json --format verbose --fix",
-    "clean": "rm -rf ./dist"
+    "clean": "rm -rf ./lib"
   },
   "config": {},
   "dependencies": {
