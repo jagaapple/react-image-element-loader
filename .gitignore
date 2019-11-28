@@ -27,7 +27,6 @@ desktop.ini
 # Generated files created by Node.js.
 node_modules
 npm-debug.log
-yarn-error.log
 
 # Generated files created by bundler.
 lib
