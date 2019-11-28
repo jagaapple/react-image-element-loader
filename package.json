@@ -35,9 +35,11 @@
     "url": "https://github.com/jagaapple/react-image-element-loader.git"
   },
   "scripts": {
-    "build": "tsc --project ./",
-    "lint": "tslint --project ./tsconfig.json --format verbose",
-    "fix": "tslint --project ./tsconfig.json --format verbose --fix",
+    "prebuild": "npm run clean",
+    "build": "tsc --project ./tsconfig.json",
+    "lint": "eslint ./src/**/*.ts",
+    "fix": "eslint --fix ./src/**/*.ts",
+    "prepublishOnly": "npm run build",
     "clean": "rm -rf ./lib"
   },
   "config": {},
