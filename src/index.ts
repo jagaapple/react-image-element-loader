@@ -1,6 +1,3 @@
-// =============================================================================================================================
-// SRC - IDNEX
-// =============================================================================================================================
 import { loader as webpackLoader } from "webpack";
 import { getOptions } from "loader-utils";
 import * as validateOptions from "schema-utils";
@@ -20,7 +17,7 @@ export default async function(this: webpackLoader.LoaderContext, buffer: Buffer)
 
   // Gets loader options.
   const options = getOptions(this as any) || {};
-  validateOptions(schema, options, "React Image Element");
+  validateOptions(schema, options, { name: "React Image Element" });
 
   const jsxCode = await generateElementFunctionCode(buffer, this.resourcePath);
   const imageURI = await generateURI(this, buffer, this.resourcePath, options);

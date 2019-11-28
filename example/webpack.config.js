@@ -1,6 +1,3 @@
-// =============================================================================================================================
-// EXAMPLE - WEBPACK CONFIG
-// =============================================================================================================================
 const reactImageElementLoader = require.resolve("../dist/index");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
