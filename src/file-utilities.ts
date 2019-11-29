@@ -21,7 +21,10 @@ const generateURIByFallbackLoader = async (
   const context = { ...loaderContext, query: loaderOptions };
   const exportModuleCode: string = fallbackLoader.call(context, source);
 
-  return `${exportModuleCode.replace(/module.exports ?= ?/, "")}`;
+  // Removes prefix.
+  const body = exportModuleCode.replace(/module.exports.*?=\s*?/, "").replace(/export default\s*?/, "");
+
+  return body;
 };
 
 export const generateURI = async (
