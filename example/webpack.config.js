@@ -1,8 +1,6 @@
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
 
-const reactImageElementLoader = require.resolve("../dist/index");
-
 module.exports = {
   mode: "development",
   entry: path.join(__dirname, "src", "index.jsx"),
@@ -14,10 +12,8 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpe?g|gif|svg)$/,
-        loader: reactImageElementLoader,
-        options: {
-          sizeLimit: 1024,
-        },
+        loader: "react-image-element-loader",
+        options: { sizeLimit: 1024 },
         exclude: /node_modules/,
       },
       {
@@ -26,7 +22,10 @@ module.exports = {
           {
             loader: "babel-loader",
             options: {
-              presets: [["@babel/preset-env", { targets: { esmodules: true } }], ["@babel/preset-react"]],
+              presets: [
+                ["@babel/preset-env", { targets: { esmodules: true } }],
+                ["@babel/preset-react"],
+              ],
             },
           },
         ],
