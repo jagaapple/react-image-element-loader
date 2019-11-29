@@ -1,6 +1,7 @@
-const reactImageElementLoader = require.resolve("../dist/index");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require("path");
+
+const reactImageElementLoader = require.resolve("../dist/index");
 
 module.exports = {
   mode: "development",

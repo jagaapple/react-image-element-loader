@@ -1,8 +1,6 @@
-// =============================================================================================================================
-// EXAMPLE - INDEX
-// =============================================================================================================================
 import React from "react";
 import ReactDOM from "react-dom"
+
 import ImageElement, { path as imagePath } from "./star.png";
 import SvgElement, { path as svgPath } from "./polygon.svg";
 
