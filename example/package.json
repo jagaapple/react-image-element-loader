@@ -1,26 +1,11 @@
 {
   "name": "react-image-element-loader-sample",
   "version": "1.0.0",
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/jagaapple/react-image-element-loader",
-  "bugs": "https://github.com/jagaapple/react-image-element-loader/issues",
-  "license": "MIT",
-  "author": "Jaga Apple",
-  "contributors": [],
-  "main": "index.js",
-  "bin": "",
-  "man": "",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jagaapple/react-image-element-loader.git"
-  },
   "scripts": {
     "start": "webpack-serve",
     "build": "webpack --config ./webpack.config.js",
     "clean": "rm -rf ./dist"
   },
-  "config": {},
   "dependencies": {
     "copy-webpack-plugin": "^4.5.2"
   },
@@ -35,9 +20,5 @@
     "webpack-cli": "^3.1.0",
     "webpack-serve": "^2.0.2"
   },
-  "peerDependencies": {},
-  "engines": {},
-  "engineStrict": false,
-  "preferGlobal": false,
   "private": true
 }
