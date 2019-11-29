@@ -18,17 +18,7 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                ["@babel/preset-env", { targets: { esmodules: true } }],
-                ["@babel/preset-react"],
-              ],
-            },
-          },
-        ],
+        loader: "babel-loader",
         exclude: /node_modules/,
       },
     ],
@@ -40,5 +30,10 @@ module.exports = {
   ],
   resolve: {
     extensions: [".js", ".jsx"],
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 5000,
   },
 };
