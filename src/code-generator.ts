@@ -1,8 +1,9 @@
 import * as svgToJSX from "svg-to-jsx";
+
 import { getExtension } from "./file-utilities";
 
-const generateJSXFromSVG = (svg: string) => {
-  const promise = svgToJSX(svg) as Promise<string>;
+const generateJSXFromSVG = async (svg: string) => {
+  const promise: Promise<string> = svgToJSX(svg);
   const onFulfilled = (jsx: string) => {
     const code = jsx.replace(/<svg(.*?)>/, "<svg$1 {...props}>");
 
@@ -13,15 +14,13 @@ const generateJSXFromSVG = (svg: string) => {
   return promise.then(onFulfilled).catch(onRejected);
 };
 
-const generateJSXFromRasterImages = async () => {
-  return `
-    (function(props) {
-      var newProps = Object.assign({}, props, { src: imagePath });
+const generateJSXFromRasterImages = async () => `
+  (function(props) {
+    var newProps = Object.assign({}, props, { src: imagePath });
 
-      return <img {...newProps} />
-    });
-  `;
-};
+    return <img {...newProps} />
+  });
+`;
 
 export const generateElementFunctionCode = (source: Buffer, filePath: string) => {
   const isSVG = getExtension(filePath) === "svg";
@@ -32,6 +31,6 @@ export const generateElementFunctionCode = (source: Buffer, filePath: string) =>
 export const generateModuleCode = (imageURI: string, jsxCode: string) => `
   var React = require("react");
   var imagePath = ${imageURI};
-  module.exports = ${jsxCode};
-  module.exports.path = imagePath;
+  module.exports = imagePath;
+  module.exports.element = ${jsxCode};
 `;

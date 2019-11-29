@@ -1,25 +1,32 @@
 import { parseQuery } from "loader-utils";
 
-interface LoaderObject {
-  loader: Function;
+type LoaderObject = {
+  loader: (...args: any) => any;
   options: object;
-}
+};
 
 const defualtLoader = "file-loader";
 export const getFallbackLoader = (fallbackLoader?: string | LoaderObject) => {
-  let loader: string | Function;
-  let loaderOptions = {};
+  let loader: string | LoaderObject["loader"];
+  let loaderOptions: object = {};
 
-  if (typeof fallbackLoader === "object") {
-    loader = fallbackLoader.loader;
-    loaderOptions = fallbackLoader.options;
-  } else if (typeof fallbackLoader === "string") {
-    const queryIndex = fallbackLoader.indexOf("?");
+  switch (typeof fallbackLoader) {
+    case "object":
+      loader = fallbackLoader.loader;
+      loaderOptions = fallbackLoader.options;
 
-    loader = fallbackLoader.substr(0, queryIndex);
-    loaderOptions = parseQuery(fallbackLoader.substr(queryIndex));
-  } else {
-    loader = defualtLoader;
+      break;
+    case "string":
+      const queryIndex = fallbackLoader.indexOf("?");
+
+      loader = fallbackLoader.substr(0, queryIndex);
+      loaderOptions = parseQuery(fallbackLoader.substr(queryIndex));
+
+      break;
+    default:
+      loader = defualtLoader;
+
+      break;
   }
 
   return { loader, loaderOptions };
