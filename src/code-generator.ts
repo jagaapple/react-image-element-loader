@@ -31,6 +31,6 @@ export const generateElementFunctionCode = (source: Buffer, filePath: string) =>
 export const generateModuleCode = (imageURI: string, jsxCode: string) => `
   var React = require("react");
   var imagePath = ${imageURI};
-  module.exports = ${jsxCode};
-  module.exports.path = imagePath;
+  module.exports = imagePath;
+  module.exports.element = ${jsxCode};
 `;
