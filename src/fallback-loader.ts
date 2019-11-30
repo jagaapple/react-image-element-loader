@@ -17,11 +17,12 @@ export const getFallbackLoader = (fallbackLoader?: string | LoaderObject) => {
 
       break;
     case "string":
-      const queryIndex = fallbackLoader.indexOf("?");
+      (() => {
+        const queryIndex = fallbackLoader.indexOf("?");
 
-      loader = fallbackLoader.substr(0, queryIndex);
-      loaderOptions = parseQuery(fallbackLoader.substr(queryIndex));
-
+        loader = fallbackLoader.substr(0, queryIndex);
+        loaderOptions = parseQuery(fallbackLoader.substr(queryIndex));
+      })();
       break;
     default:
       loader = defualtLoader;
