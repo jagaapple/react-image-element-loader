@@ -36,7 +36,7 @@
   },
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc --project ./tsconfig.json",
+    "build": "tsc",
     "lint": "eslint ./src/**/*.ts",
     "fix": "eslint --fix ./src/**/*.ts",
     "prepublishOnly": "npm run build",
