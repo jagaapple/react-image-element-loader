@@ -1,6 +1,3 @@
-// =============================================================================================================================
-// SRC - TYPES DEFINITION
-// =============================================================================================================================
 /// <reference types="react" />
 
 // For vector images.
@@ -25,30 +22,30 @@ declare module "*.png" {
   const path: string;
   const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
-  export { path };
-  export default element;
+  export { element };
+  export default path;
 }
 
 declare module "*.jpg" {
   const path: string;
   const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
-  export { path };
-  export default element;
+  export { element };
+  export default path;
 }
 
 declare module "*.jpeg" {
   const path: string;
   const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
-  export { path };
-  export default element;
+  export { element };
+  export default path;
 }
 
 declare module "*.gif" {
   const path: string;
   const element: (props: ImgHTMLAttributesWithoutSrc<HTMLImageElement>) => JSX.Element;
 
-  export { path };
-  export default element;
+  export { element };
+  export default path;
 }
