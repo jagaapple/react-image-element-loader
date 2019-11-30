@@ -8,6 +8,7 @@
 - Add support for Babel 7
 - Update dependencies
 - Update development envrironment
+  - Add CircleCI settings
   - Use `webpack-dev-server` instead of `webpack-serve`
   - Use ESLint instead of TSLint
 - Modify a readme
