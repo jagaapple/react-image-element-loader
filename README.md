@@ -31,8 +31,8 @@ export default () => (
   - [Installation](#installation)
   - [Setup](#setup)
 - [Usage](#usage)
-  - [Get React element](#get-react-element)
-  - [Get image path](#get-image-path)
+  - [Gets image path](#gets-image-path)
+  - [Gets React element](#gets-react-element)
 - [Options](#options)
   - [`sizeLimit`](#sizelimit)
   - [`jsx`](#jsx)
@@ -48,11 +48,11 @@ export default () => (
 
 ## Features
 
-| FEATURES                 | WHAT YOU CAN DO                                 |
-|--------------------------|-------------------------------------------------|
-| ⚛️ **Designed for JSX**   | Import images as React element like `<Image />` |
-| ✨ **Get as plain image** | Import image paths or as inline image (Base64)  |
-| 🎩 **Type Safe**         | You can use with TypeScript                     |
+| FEATURES                      | WHAT YOU CAN DO                                              |
+|-------------------------------|--------------------------------------------------------------|
+| ⚛️ **Designed for JSX**        | Import images as React element like `<MySVG fill={color} />` |
+| ✨ **Exported as plain image** | Import image paths or as inline image (Base64)               |
+| 🎩 **Type Safe**              | You can use with TypeScript                                  |
 
 
 ## Quick Start
@@ -63,7 +63,7 @@ export default () => (
 ### Installation
 
 ```bash
-$ npm install --save react-image-element-loader
+$ npm install react-image-element-loader
 ```
 
 If you are using Yarn, use the following command.
@@ -94,7 +94,7 @@ module.exports = {
 };
 ```
 
-Also you can pass an object to "loader" instead of string `"react-image-element-loader"` .
+Also you can pass a module to "loader" property instead.
 
 ```js
 // webpack.config.js
@@ -110,8 +110,28 @@ const reactImageElementLoader = require("react-image-element-loader");
 
 
 ## Usage
-### Get React element
-You can import images as React element like `<img />` . It's possible to pass props such as HTMLAttributes, but `src` will be ignored.
+### Gets image path
+You can import image paths (URI).
+
+```jsx
+import photoImagePath from "./photo.jpg";
+// or: const photoImagePath = require("./photo.jpg").default;
+import logoImagePath from "./logo.svg";
+
+export default () => (
+  <div>
+    <img src={logoImagePath} alt="logo" />
+    <img src={imagePath} alt="photo" />
+  </div>
+);
+```
+
+Generally, the path is an actual image URL (through [file-loader](https://github.com/webpack-contrib/file-loader)). When you
+use `sizeLimit` option and the image is smaller than `sizeLimit` , the path will be converted to inline image (Base64 encoded URL).
+For more detail, see [`sizeLimit` option](#sizelimit).
+
+### Gets React element
+You can import images as React elements like `<img />` . It's possible to pass props such as HTMLAttributes, but `src` will be ignored.
 
 ```jsx
 import { element as PhotoImage } from "./photo.jpg";
@@ -125,33 +145,13 @@ export default () => (
     <PhotoImage />
     <PhotoImage width="100" alt="flower" />
 
-    {/* src will be ignored. */}
+    {/* overwriting `src` will be ignored. */}
     <PhotoImage src="other-image.jpg" />
   </div>
 );
 ```
 
 react-image-element-loader supports PNG (.png), JPEG (.jpg), GIF (.gif), and SVG (.svg).
-
-### Get image path
-You can import image path (URI).
-
-```jsx
-import photoImagePath from "./photo.jpg";
-// or: const photoImagePath = require("./photo.jpg");
-import logoImagePath from "./logo.svg";
-
-export default () => (
-  <div>
-    <img src={logoImagePath} alt="logo" />
-    <img src={imagePath} alt="photo" />
-  </div>
-);
-```
-
-In generally, `path` is an actual image URL (through [file-loader](https://github.com/webpack-contrib/file-loader)). When you
-use `sizeLimit` option and the image is smaller than `sizeLimit` , `path` will be converted to inline image (Base64 encoded URL).
-For more detail, see [`sizeLimit` option](#sizelimit).
 
 
 ## Options
@@ -160,11 +160,11 @@ Type: `Number` Default: `undefined`
 
 A number specifying the maximum size of an image file in bytes.
 
-If the image is greater than the limit or `sizeLimit` option specified `undefined`, `path` will be actual URL. In that case,
+If the image is greater than the limit or `sizeLimit` option specified `undefined`, `path` will be an actual URL. In that case,
 [file-loader](https://github.com/webpack-contrib/file-loader) is used by default and all query parameters are passed to it.
 Using an alternative to file-loader is enabled via the `fallback` option.
 
-If the image is smaller than the limit, `path` will be Base64 encoded URL.
+If the image is smaller than the limit, `path` will be a Base64 encoded URL.
 
 ```js
 // webpack.config.js
