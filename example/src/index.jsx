@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom"
 
-import ImageElement, { path as imagePath } from "./star.png";
-import SvgElement, { path as svgPath } from "./polygon.svg";
+import startImagePath, { element as StarImage } from "./star.png";
+import polygonImagePath, { element as PolygonSVG } from "./polygon.svg";
 
 ReactDOM.render(
   <main>
     <h1>Hello, world!</h1>
-    <img src={imagePath} width="256" />
-    <ImageElement width="256" />
+    <img src={startImagePath} width="256" />
+    <StarImage width="256" />
 
     <hr />
 
-    <img src={svgPath} width="256" />
-    <SvgElement fill="red" />
+    <img src={polygonImagePath} width="256" />
+    <PolygonSVG fill="red" />
   </main>,
   document.getElementById("app"),
 );
