@@ -18,7 +18,7 @@ const generateJSXFromRasterImages = async () => `
   (function(props) {
     var newProps = Object.assign({}, props, { src: imagePath });
 
-    return <img {...newProps} />
+    return <img {...newProps} />;
   });
 `;
 
@@ -31,6 +31,8 @@ export const generateElementFunctionCode = (source: Buffer, filePath: string) =>
 export const generateModuleCode = (imageURI: string, jsxCode: string) => `
   var React = require("react");
   var imagePath = ${imageURI};
-  module.exports = imagePath;
-  module.exports.element = ${jsxCode};
+
+  Object.defineProperty(exports, "__esModule", { value: true });
+  exports.default = imagePath;
+  exports.element = ${jsxCode};
 `;
