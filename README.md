@@ -3,8 +3,8 @@
 <h4 align="center">🖼️ The webpack loader to import React element and file path from images. 📦</h4>
 
 ```jsx
-import photoImagePath from "./photo.jpg";
 import { element as LogoSVG } from "./logo.svg";
+import photoImagePath from "./photo.jpg";
 
 export default () => (
   <div>
@@ -48,7 +48,6 @@ export default () => (
 
 
 ## Features
-
 | FEATURES                      | WHAT YOU CAN DO                                              |
 |-------------------------------|--------------------------------------------------------------|
 | ⚛️ **Designed for JSX**        | Import images as React element like `<MySVG fill={color} />` |
@@ -62,7 +61,6 @@ export default () => (
 - webpack 4.0.0 or higher
 
 ### Installation
-
 ```bash
 $ npm install react-image-element-loader
 ```
@@ -115,14 +113,14 @@ const reactImageElementLoader = require("react-image-element-loader");
 You can import image paths (URI).
 
 ```jsx
-import photoImagePath from "./photo.jpg";
-// or: const photoImagePath = require("./photo.jpg").default;
 import logoImagePath from "./logo.svg";
+// or: const logoImagePath = require("./logo.svg").default;
+import photoImagePath from "./photo.jpg";
 
 export default () => (
   <div>
     <img src={logoImagePath} alt="logo" />
-    <img src={imagePath} alt="photo" />
+    <img src={photoImagePath} alt="photo" />
   </div>
 );
 ```
@@ -135,9 +133,9 @@ For more detail, see [`sizeLimit` option](#sizelimit).
 You can import images as React elements like `<img />` . It's possible to pass props such as HTMLAttributes, but `src` will be ignored.
 
 ```jsx
-import { element as PhotoImage } from "./photo.jpg";
-// or: const PhotoImage = require("./photo.jpg").element;
 import { element as LogoSVG } from "./logo.svg";
+// or: const LogoSVG = require("./logo.svg").element;
+import { element as PhotoImage } from "./photo.jpg";
 
 export default () => (
   <div>
@@ -234,11 +232,11 @@ If you import SVG images as React element, you can specify `width` , `height` , 
 for SVG using variables.
 
 ```jsx
-import LogoImage from "./logo.svg";
+import { element as LogoSVG } from "./logo.svg";
 
 export default (props) => (
   <div>
-    <LogoImage fill={props.color} />
+    <LogoSVG fill={props.color} />
   </div>
 );
 ```
