@@ -62,13 +62,13 @@ export default () => (
 
 ### Installation
 ```bash
-$ npm install react-image-element-loader
+$ npm install -D react-image-element-loader
 ```
 
 If you are using Yarn, use the following command.
 
 ```bash
-$ yarn add react-image-element-loader
+$ yarn add -D react-image-element-loader
 ```
 
 ### Setup
