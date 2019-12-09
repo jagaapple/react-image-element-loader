@@ -5,14 +5,14 @@ declare module "*.svg" {
   const path: string;
   const element: (props: React.SVGAttributes<SVGElement>) => JSX.Element;
 
-  export { path };
-  export default element;
+  export { element };
+  export default path;
 }
 
 // For raster images.
-interface ImgHTMLAttributesSrc {
+type ImgHTMLAttributesSrc = {
   src?: string;
-}
+};
 type ImgHTMLAttributesWithoutSrc<T> = Pick<
   React.ImgHTMLAttributes<T>,
   Exclude<keyof React.ImgHTMLAttributes<T>, keyof ImgHTMLAttributesSrc>
