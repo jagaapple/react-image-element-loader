@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.2 (2019-12-10)
+- Fix type definition of SVG images #30 - [@jagaapple](https://github.com/jagaapple)
+- Fix codes in readme
+
 ## 2.0.1 (2019-12-08)
 - Modify sample codes in readme #29 - [@jagaapple](https://github.com/jagaapple)
 - Improve development environment
