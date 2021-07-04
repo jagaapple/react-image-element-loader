@@ -276,4 +276,4 @@ Please read [Contributing Guidelines](./.github/CONTRIBUTING.md) before developm
 ## License
 The library is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
-Copyright 2019 Jaga Apple. All rights reserved.
+Copyright 2021 Jaga Apple. All rights reserved.
