@@ -1,6 +1,6 @@
 {
   "name": "react-image-element-loader",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "The webpack loader to import React element and file path from images.",
   "keywords": [
     "React",
