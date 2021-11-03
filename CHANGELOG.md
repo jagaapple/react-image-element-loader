@@ -1,4 +1,8 @@
 # Changelog
+## 2.0.4 (2021-11-03)
+- **DEPRECATED**
+  - This package has been deprecated and recommend to use [@svgr/webpack](https://react-svgr.com/docs/webpack/) instead.
+
 ## 2.0.3 (2021-07-04)
 - Fix a bin warning #38 - [@jagaapple](https://github.com/jagaapple)
   - Add issue templates for GitHub
