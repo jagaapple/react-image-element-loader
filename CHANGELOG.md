@@ -1,4 +1,9 @@
 # Changelog
+## 2.0.3 (2021-07-04)
+- Fix a bin warning #38 - [@jagaapple](https://github.com/jagaapple)
+  - Add issue templates for GitHub
+  - Modify documents
+
 ## 2.0.2 (2019-12-10)
 - Fix type definition of SVG images #30 - [@jagaapple](https://github.com/jagaapple)
 - Fix codes in readme
