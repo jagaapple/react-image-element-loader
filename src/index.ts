@@ -10,7 +10,7 @@ import { generateURI } from "./file-utilities";
 // Prevents to get a file as string.
 export const raw = true;
 
-export default async function(this: webpackLoader.LoaderContext, buffer: Buffer) {
+export default async function (this: webpackLoader.LoaderContext, buffer: Buffer) {
   const callback = this.async();
   if (callback == undefined) return;
 

@@ -17,6 +17,7 @@ const generateURIByFallbackLoader = async (
 ) => {
   const { loader, loaderOptions } = getFallbackLoader(options.fallback);
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   const fallbackLoader = typeof loader === "string" ? ((await import(loader)) as Function) : loader;
   const context = { ...loaderContext, query: loaderOptions };
   const exportModuleCode: string = fallbackLoader.call(context, source);
