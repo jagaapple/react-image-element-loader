@@ -19,7 +19,7 @@ jobs:
     needs: "parameters"
     strategy:
       matrix:
-        node: ["12.13", "14.16", "16.13"]
+        node: ["14.16", "16.13"]
     steps:
       - uses: "actions/checkout@v2"
       - name: "Use Node.js"
@@ -42,7 +42,7 @@ jobs:
     runs-on: "ubuntu-latest"
     strategy:
       matrix:
-        node: ["12.13", "14.16", "16.13"]
+        node: ["14.16", "16.13"]
     steps:
       - uses: "actions/checkout@v2"
       - name: "Use Node.js"
