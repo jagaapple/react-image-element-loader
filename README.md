@@ -1,3 +1,8 @@
+> 💀 **This package has been deprecated.**
+> This package has been deprecated and recommend to use [@svgr/webpack](https://react-svgr.com/docs/webpack/) instead.
+
+---
+
 <h1 align="center">react-image-element-loader</h1>
 
 <h4 align="center">🖼️ The webpack loader to import React element and file path from images. 📦</h4>
@@ -16,7 +21,6 @@ export default () => (
 
 <div align="center">
 <a href="https://www.npmjs.com/package/react-image-element-loader"><img src="https://img.shields.io/npm/v/react-image-element-loader.svg" alt="npm"></a>
-<a href="https://circleci.com/gh/jagaapple/react-image-element-loader"><img src="https://img.shields.io/circleci/project/github/jagaapple/react-image-element-loader/master.svg" alt="CircleCI"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/jagaapple/react-image-element-loader.svg" alt="license"></a>
 <a href="https://twitter.com/jagaapple_tech"><img src="https://img.shields.io/badge/contact-%40jagaapple_tech-blue.svg" alt="@jagaapple_tech"></a>
 </div>
