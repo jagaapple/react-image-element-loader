@@ -1,5 +1,4 @@
 {
-
   // ---------------------------------------------------------------------------------------------------------------------------
   // Editor
   // ---------------------------------------------------------------------------------------------------------------------------
@@ -7,13 +6,10 @@
   // Works best when 'quickSuggestions' aren't enabled.
   "editor.tabCompletion": "on",
   // Columns at which to show vertical rulers.
-  "editor.rulers": [
-    128
-  ],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-
+  "editor.rulers": [128],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": ["source.fixAll.eslint", "source.fixAll.stylelint"],
 
   // ---------------------------------------------------------------------------------------------------------------------------
   // Files
@@ -32,36 +28,15 @@
     "lib/**": true
   },
 
-
   // ---------------------------------------------------------------------------------------------------------------------------
   // Extensions
   // ---------------------------------------------------------------------------------------------------------------------------
   // ESLint
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   // ---------------------------------------------------------------------------------------------------------------------------
   // Language Setings
   // ---------------------------------------------------------------------------------------------------------------------------
   // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
-  "typescript.tsdk": "./node_modules/typescript/lib",
-
-  "[javascript]": {
-    "editor.formatOnSave": true
-  },
-  "[javascriptreact]": {
-    "editor.formatOnSave": true
-  },
-  "[typescript]": {
-    "editor.formatOnSave": true
-  },
-  "[typescriptreact]": {
-    "editor.formatOnSave": true
-  }
-
+  "typescript.tsdk": "./node_modules/typescript/lib"
 }
